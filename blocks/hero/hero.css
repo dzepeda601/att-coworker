@@ -21,15 +21,17 @@
   line-height: 0;
 }
 
-/* Gradient fade effect at the bottom of the hero image */
+/* Left-to-right dark scrim keeps white text legible over the vivid image */
 .hero > div:first-child::after {
   content: '';
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 65%;
-  background: linear-gradient(to bottom, transparent 0%, light-dark(var(--color-parchment), var(--color-obsidian)) 100%);
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgb(0 0 0 / 55%) 0%,
+    rgb(0 0 0 / 30%) 42%,
+    rgb(0 0 0 / 0%) 72%
+  );
   pointer-events: none;
   z-index: 1;
 }
@@ -54,27 +56,27 @@
 .hero picture img {
   display: block;
   width: 100%;
-  max-height: 580px;
+  max-height: 640px;
   object-fit: cover;
-  opacity: 0.55;
+  opacity: 1;
 }
 
-/* Text overlay */
+/* Text overlay — top-anchored, left column (AT&T billboard) */
 .hero > div:last-child {
   position: absolute;
   inset: 0;
   z-index: 2;
-  padding: 40px var(--content-padding-inline);
+  padding: 48px var(--content-padding-inline);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .hero > div:last-child > div {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--space-m);
-  max-width: 600px;
+  gap: var(--space-s);
+  max-width: 460px;
 }
 
 /* Hide the second image row when hero block decoration hasn't run (Target offer injection) */
@@ -112,25 +114,27 @@
   }
 }
 
-/* Tagline */
+/* Tagline — plain white subtext below the heading (AT&T billboard style) */
 .hero .hero-tagline {
-  font-family: var(--font-family-mono);
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--color-gold);
-  text-transform: uppercase;
-  letter-spacing: 5px;
+  order: 1;
+  font-family: var(--font-family);
+  font-size: clamp(16px, 2vw, 20px);
+  font-weight: 400;
+  color: #fff;
+  text-transform: none;
+  letter-spacing: normal;
   margin: 0;
 }
 
-/* Heading */
+/* Heading — white over the billboard image, bold sans (AT&T style) */
 .hero h1 {
   margin: 0;
-  font-family: var(--font-family-serif);
-  font-size: clamp(2rem, 8vw, 4.5rem);
-  font-weight: 500;
+  font-family: var(--font-family);
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 700;
   line-height: 1.05;
-  color: light-dark(var(--color-ink), var(--color-parchment));
+  letter-spacing: -0.02em;
+  color: #fff;
 }
 
 .hero h1 em {
@@ -177,17 +181,10 @@
   object-fit: contain;
 }
 
-/* Dark-mode image: blend into obsidian bg with soft edges */
+/* Keep the billboard image vivid in dark mode too (AT&T hero is photo-forward) */
 .dark-scheme .hero .hero-img-dark picture img,
 :root[data-theme='dark'] .hero .hero-img-dark picture img {
-  opacity: 0.3;
-  mask-image: radial-gradient(ellipse 85% 70% at 50% 35%, black 25%, transparent 100%);
-}
-
-/* Dark mode cinematic fade uses obsidian */
-.dark-scheme .hero > div:first-child::after,
-:root[data-theme='dark'] .hero > div:first-child::after {
-  background: linear-gradient(to bottom, transparent 0%, var(--color-obsidian) 100%);
+  opacity: 1;
 }
 
 /* Tablet: show body text */
@@ -201,26 +198,26 @@
 /* Desktop */
 @media (width >= 900px) {
   .hero > div:last-child {
-    padding: 100px 5vw;
+    padding: 96px 5vw;
   }
 
   .hero > div:last-child > div {
-    max-width: 1000px;
-    margin: 0 25%;
+    max-width: 520px;
+    margin: 0;
   }
 
   .hero h1 {
-    font-size: clamp(3.5rem, 5vw, 6rem);
+    font-size: clamp(40px, 4vw, 52px);
   }
 }
 
 @media (width >= 1200px) {
   .hero > div:last-child {
-    padding: 100px 6vw;
+    padding: 96px 6vw;
   }
 
   .hero h1 {
-    font-size: clamp(4rem, 5.5vw, 6.5rem);
+    font-size: 52px;
   }
 }
 
