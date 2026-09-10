@@ -762,6 +762,19 @@ main .section.highlight blockquote {
   text-transform: uppercase;
 }
 
+/* Promo section pulls up to overlap the hero image (AT&T billboard effect) */
+main .section:has(.columns.promo) {
+  position: relative;
+  z-index: 2;
+  margin-top: -96px;
+}
+
+@media (width >= 900px) {
+  main .section:has(.columns.promo) {
+    margin-top: -140px;
+  }
+}
+
 /* Promo columns variant (Wireless / Internet) — elevated white product cards */
 .columns.promo > div > div {
   display: flex;
