@@ -769,8 +769,8 @@ main .section.highlight blockquote {
 
 /* stylelint-disable-next-line no-descending-specificity */
 .hero > div:last-child {
-  padding: 40px var(--content-padding-inline);
-  align-items: center;
+  padding: 48px var(--content-padding-inline);
+  align-items: flex-start; /* top-anchored like the original billboard */
 }
 
 .hero > div:last-child > div {
@@ -798,7 +798,8 @@ main .section.highlight blockquote {
 
 @media (width >= 900px) {
   .hero > div:last-child {
-    padding: 80px 5vw;
+    padding: 96px 5vw;
+    align-items: flex-start;
   }
 
   .hero > div:last-child > div {
