@@ -857,15 +857,18 @@ main .section.highlight blockquote {
   max-width: 34ch;
 }
 
-.columns.promo .promo-price {
+/* Pricing line = the paragraph with the bold price. Targeted structurally via
+   :has(strong) because the DA pipeline strips helper classes off inner <p>. */
+.columns.promo p:has(> strong) {
   margin-top: var(--space-l);
   padding-top: var(--space-l);
   border-top: 1px solid var(--color-gray-200);
   width: 100%;
   max-width: none;
+  color: var(--color-ink);
 }
 
-.columns.promo .promo-price strong {
+.columns.promo p > strong {
   display: block;
   font-size: clamp(36px, 4vw, 48px);
   font-weight: 700;
@@ -873,8 +876,9 @@ main .section.highlight blockquote {
   line-height: 1.1;
 }
 
+/* Fine-print paragraphs (no bold price, not the CTA) read muted */
 /* stylelint-disable-next-line no-descending-specificity */
-.columns.promo p:not(.promo-price, .button-container) {
+.columns.promo p:not(:has(> strong), .button-container) {
   color: var(--color-muted);
   font-size: var(--body-font-size-s);
 }
