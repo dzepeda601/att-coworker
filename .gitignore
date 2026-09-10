@@ -12,6 +12,10 @@ helix-importer-ui
 .wrangler
 .dev.vars
 
+# migration scratch (scrape artifacts + import HTML generator)
+import-work
+.migration
+
 # Ensure these files are tracked
 !CLAUDE.md
 !AGENTS.md
