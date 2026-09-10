@@ -781,13 +781,21 @@ main .section.highlight blockquote {
 }
 
 .columns.promo picture {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 280px;
   margin-bottom: var(--space-m);
 }
 
+/* Show the whole product, centered and letterboxed — never cropped */
 .columns.promo img {
   width: auto;
-  max-height: 300px;
+  max-width: 100%;
+  height: 100%;
+  max-height: 280px;
+  object-fit: contain;
   border-radius: 0;
 }
 
