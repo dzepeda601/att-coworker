@@ -729,3 +729,182 @@ main > .section.warm {
 .library-metadata-wrapper {
   display: none;
 }
+
+/* ==========================================================================
+   AT&T Business landing styles — folded in from the page template so the
+   promo cards + hero polish apply without relying on template metadata.
+   ========================================================================== */
+
+/* Muted fine-print (legal/disclaimer) paragraphs on promo/columns/cards */
+main .columns p:last-of-type,
+main .cards p:last-of-type {
+  color: var(--color-muted);
+}
+
+/* Highlighted band quote (testimonial) styling */
+main .section.highlight blockquote {
+  border: none;
+  font-size: clamp(20px, 2.4vw, 26px);
+  font-weight: 700;
+  color: var(--color-ink);
+  letter-spacing: -0.01em;
+}
+
+/* Hero — AT&T billboard: vivid image, white text left-anchored over a scrim */
+.hero picture img {
+  max-height: 640px;
+  opacity: 1;
+}
+
+.hero > div:first-child::after {
+  inset: 0;
+  height: auto;
+  background: linear-gradient(
+    90deg,
+    rgb(0 0 0 / 55%) 0%,
+    rgb(0 0 0 / 30%) 42%,
+    rgb(0 0 0 / 0%) 72%
+  );
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.hero > div:last-child {
+  padding: 40px var(--content-padding-inline);
+  align-items: center;
+}
+
+.hero > div:last-child > div {
+  max-width: 460px;
+  margin: 0;
+  gap: var(--space-s);
+  align-items: flex-start;
+}
+
+.hero h1 {
+  color: #fff;
+  font-size: clamp(32px, 5vw, 48px);
+  line-height: 1.05;
+}
+
+.hero .hero-tagline {
+  order: 1;
+  font-family: var(--font-family);
+  font-size: clamp(16px, 2vw, 20px);
+  font-weight: 400;
+  letter-spacing: normal;
+  text-transform: none;
+  color: #fff;
+}
+
+@media (width >= 900px) {
+  .hero > div:last-child {
+    padding: 80px 5vw;
+  }
+
+  .hero > div:last-child > div {
+    max-width: 520px;
+    margin: 0;
+  }
+}
+
+/* Category tag on case-study cards */
+.cards .cards-card-tag {
+  color: var(--color-rust);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Promo columns variant (Wireless / Internet) — elevated white product cards */
+.columns.promo > div > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-2xl) var(--space-xl);
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgb(0 0 0 / 12%), 0 2px 6px rgb(0 0 0 / 8%);
+}
+
+@media (width >= 900px) {
+  .columns.promo > div {
+    align-items: stretch;
+  }
+}
+
+.columns.promo picture {
+  display: block;
+  margin-bottom: var(--space-m);
+}
+
+.columns.promo img {
+  width: auto;
+  max-height: 300px;
+  border-radius: 0;
+}
+
+.columns.promo h3 {
+  color: var(--color-rust);
+  font-size: clamp(24px, 2.4vw, 30px);
+  margin: 0 0 var(--space-s);
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.columns.promo p {
+  margin: 0 0 var(--space-s);
+  max-width: 34ch;
+}
+
+.columns.promo .promo-price {
+  margin-top: var(--space-l);
+  padding-top: var(--space-l);
+  border-top: 1px solid var(--color-gray-200);
+  width: 100%;
+  max-width: none;
+}
+
+.columns.promo .promo-price strong {
+  display: block;
+  font-size: clamp(36px, 4vw, 48px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.columns.promo p:not(.promo-price, .button-container) {
+  color: var(--color-muted);
+  font-size: var(--body-font-size-s);
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.columns.promo h3 + p {
+  color: var(--color-ink);
+  font-size: var(--body-font-size-m);
+}
+
+.columns.promo .button-container {
+  margin-top: auto;
+  padding-top: var(--space-l);
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.columns.promo .button-container > a {
+  border: 2px solid var(--color-rust);
+  border-radius: 28px;
+  padding: 12px 40px;
+  color: var(--color-rust);
+  background: transparent;
+  background-image: none;
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.columns.promo .button-container > a:hover {
+  background: var(--color-rust);
+  color: #fff;
+}
